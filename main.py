@@ -72,7 +72,7 @@ def view_patient(patient_id: str = Path(..., description='ID of the patient in t
     raise HTTPException(status_code=404, detail='patient not found')
 
 @app.get("/sort")
-def soft_patient(sort_by:str =Query(...,description= 'SOrt on the basis of height,weight or Age'),order:str =Query('asc',description='Sort in asce or desc order')):
+def soft_patient(sort_by:str =Query(...,description= 'Sort on the basis of Height,Weight or Age'),order:str =Query('asc',description='Sort in asc or desc order')):
     valid_field=['Height','Weight','Age']
     if sort_by not in valid_field:
         raise HTTPException(status_code=400,detail=f"Invalid field select from {valid_field}")
